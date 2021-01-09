@@ -1,0 +1,17 @@
+--- a/com/mojang/blaze3d/platform/GLX.java
++++ b/com/mojang/blaze3d/platform/GLX.java
+@@ -67,6 +67,14 @@
+       return Version.getVersion();
+    }
+ 
++   public static boolean isUsingFBOs() {
++      return true;
++   }
++
++   public static boolean useVbo() {
++      return true;
++   }
++
+    public static LongSupplier _initGlfw() {
+       RenderSystem.assertThread(RenderSystem::isInInitPhase);
+       MainWindow.func_211162_a((p_229879_0_, p_229879_1_) -> {

@@ -32,3 +32,12 @@
                 int i = NetworkSystem.this.field_151273_d.func_241871_k();
                 NetworkManager networkmanager = (NetworkManager)(i > 0 ? new RateLimitedNetworkManager(i) : new NetworkManager(PacketDirection.SERVERBOUND));
                 NetworkSystem.this.field_151272_f.add(networkmanager);
+@@ -143,6 +145,8 @@
+                      networkmanager.func_150721_g();
+                   }
+                } else {
++                  if (networkmanager.preparing) continue;
++
+                   iterator.remove();
+                   networkmanager.func_179293_l();
+                }
