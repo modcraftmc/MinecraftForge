@@ -8,6 +8,10 @@ buildscript {
             name 'maven_central'
             url 'https://repo.maven.apache.org/maven2/'
         }
+
+        maven {
+            url 'https://maven.gegy.dev/'
+        }
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:3.0.187'
@@ -62,6 +66,9 @@ project(':mcp') {
     apply plugin: 'net.minecraftforge.gradle.mcp'
     repositories {
         mavenLocal()
+        maven {
+            url 'https://maven.gegy.dev/'
+        }
     }
     mcp {
         config = MC_VERSION + '-' + MCP_VERSION
@@ -81,6 +88,10 @@ project(':clean') {
         maven {
             name 'maven_central'
             url 'https://repo.maven.apache.org/maven2/'
+        }
+
+        maven {
+            url 'https://maven.gegy.dev/'
         }
     }
     
@@ -193,6 +204,9 @@ project(':forge') {
         maven {
             name 'maven_central'
             url 'https://repo.maven.apache.org/maven2/'
+        }
+        maven {
+            url 'https://maven.gegy.dev/'
         }
     }
 
@@ -466,6 +480,7 @@ project(':forge') {
         testImplementation 'org.hamcrest:hamcrest-all:1.3' // needs advanced matching for list order
 
 
+        installer 'net.gegy1000:just-now:0.1.0-SNAPSHOT'
         //ModcraftForge
         //installer 'mysql.mysql-connector-java:8.0.22'
     }
@@ -1051,6 +1066,9 @@ project(':forge') {
             }
         }
         repositories {
+            maven {
+                url 'https://maven.gegy.dev/'
+            }
             maven {
                 if (project.hasProperty('forgeMavenPassword')) {
                     credentials {
